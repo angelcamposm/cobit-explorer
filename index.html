@@ -85,7 +85,7 @@
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0">
-                    <h1 class="text-xl font-bold text-gray-800" data-i18n-key="headerTitle">COBIT 2019 Explorer</h1>
+                    <h1 class="text-xl font-bold text-gray-800" data-i18n-key="headerTitle">Explorador de COBIT 2019</h1>
                 </div>
                 <div class="hidden md:flex items-center">
                     <div class="flex items-baseline space-x-4">
@@ -565,7 +565,7 @@
             document.documentElement.lang = lang;
             document.querySelectorAll('[data-i18n-key]').forEach(el => {
                 const key = el.dataset.i18nKey;
-                if (i18nData[lang][key] && typeof i18nData[lang][key] === 'string') {
+                if (i18nData[lang] && i18nData[lang][key] && typeof i18nData[lang][key] === 'string') {
                     el.innerHTML = i18nData[lang][key];
                 }
             });
@@ -625,6 +625,17 @@
                         }
                     }
                 });
+            });
+            
+            document.body.addEventListener('click', (e) => {
+                const header = e.target.closest('.accordion-header');
+                if (header) {
+                    const content = header.nextElementSibling;
+                    const icon = header.querySelector('span:last-child');
+                    const isVisible = content.style.display === 'block';
+                    content.style.display = isVisible ? 'none' : 'block';
+                    icon.innerHTML = isVisible ? '&#9662;' : '&#9652;';
+                }
             });
 
             const observerOptions = {
@@ -694,8 +705,6 @@
             
             i18nData[currentLang].principles.system.forEach(p => systemContainer.innerHTML += createAccordionItem(p.title, p.content));
             i18nData[currentLang].principles.framework.forEach(p => frameworkContainer.innerHTML += createAccordionItem(p.title, p.content));
-            
-            initAccordionListeners();
         }
         
         function createAccordionItem(title, content) {
@@ -724,18 +733,6 @@
                         <p>${content}</p>
                     </div>
                 </div>`;
-        }
-        
-        function initAccordionListeners() {
-             document.querySelectorAll('.accordion-header').forEach(header => {
-                header.addEventListener('click', () => {
-                    const content = header.nextElementSibling;
-                    const icon = header.querySelector('span:last-child');
-                    const isVisible = content.style.display === 'block';
-                    content.style.display = isVisible ? 'none' : 'block';
-                    icon.innerHTML = isVisible ? '&#9662;' : '&#9652;';
-                });
-            });
         }
 
         function initArchitecture() {
@@ -789,8 +786,6 @@
             if (buttonToActivate) {
                 buttonToActivate.click();
             }
-            
-            initAccordionListeners();
         }
 
         function renderObjectives(domainId) {
