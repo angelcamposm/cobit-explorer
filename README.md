@@ -10,10 +10,12 @@ Este proyecto es una Single Page Application (SPA) interactiva y responsive dise
 
 ## ✨ Características Principales
 
-- Navegación Fluida en una Sola Página: Todo el contenido está estructurado en una única página con desplazamiento suave. La barra de navegación fija permite saltar fácilmente entre secciones.
-- Totalmente Bilingüe (ES/EN): Soporte completo para español e inglés. El idioma se puede cambiar al instante con un selector de botones intuitivo.
-- Diseño Responsive: La interfaz se adapta perfectamente a cualquier tamaño de pantalla, desde ordenadores de escritorio hasta dispositivos móviles.
-- Visualización de Datos: Incluye un gráfico de anillo interactivo (creado con Chart.js) para mostrar la distribución de los 40 objetivos de COBIT en sus 5 dominios.
+- **Navegación fluida en una sola página**: Todo el contenido está estructurado en una única página con desplazamiento suave. La barra de navegación fija permite saltar fácilmente entre secciones.
+- **Totalmente bilingüe (ES/EN)**: Soporte completo para español e inglés. El idioma se puede cambiar al instante con un selector de botones intuitivo.
+- **Visualización de datos**: Incluye un gráfico de anillo interactivo (creado con Chart.js) para mostrar la distribución de los 40 objetivos de COBIT en sus 5 dominios.
+- **Diseño responsive**: La interfaz se adapta perfectamente a cualquier tamaño de pantalla, desde ordenadores de escritorio hasta dispositivos móviles.
+- **Auto-contenido**: Toda la aplicación está contenida en un único archivo HTML, lo que la hace extremadamente portátil y fácil de ejecutar.
+- **Sin dependencias externas (excepto CDNs)**: No requiere instalación ni compilación.
 
 Contenido Interactivo:
 
@@ -28,19 +30,11 @@ Contenido Interactivo:
 
 Este proyecto está construido con tecnologías web estándar para garantizar la máxima compatibilidad y simplicidad:
 
-- HTML5: Para la estructura semántica del contenido.
-- Tailwind CSS: Para un diseño de interfaz de usuario moderno, responsive y basado en utilidades, cargado a través de CDN.
-- JavaScript (Vanilla): Para toda la lógica de interactividad, incluyendo:
+- **HTML5**: Para la estructura semántica del contenido.
+- **Tailwind CSS**: Para un diseño de interfaz de usuario moderno, responsive y basado en utilidades, cargado a través de CDN.
+- **JavaScript (Vanilla)**: Para toda la lógica de interactividad, incluyendo:
 
-Gestión del estado del idioma.
-
-Manipulación del DOM para actualizar el contenido dinámicamente.
-
-Control de la navegación por scroll (Intersection Observer).
-
-Manejo de eventos para todos los elementos interactivos.
-
-Chart.js: Para la creación del gráfico de anillo, cargado a través de CDN.
+---
 
 ## ⚙️ Cómo Empezar
 
@@ -49,7 +43,7 @@ No se requiere ninguna instalación o configuración complicada. Simplemente sig
 1.  **Clona el repositorio (o descarga el archivo)**:
    
 ```bash
-git clone [https://github.com/angelcamposm/cobit-explorer.git](https://github.com/angelcamposm/cobit-explorer.git)
+git clone https://github.com/angelcamposm/cobit-explorer.git
 ```
     
 2.  **Abre el archivo HTML:**
