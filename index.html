@@ -49,28 +49,33 @@
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 400px;
+            max-width: 450px; /* Slightly increased max-width */
             margin-left: auto;
             margin-right: auto;
-            height: 300px;
-            max-height: 400px;
+            height: 350px; /* Adjusted height */
+            max-height: 450px;
         }
         @media (min-width: 768px) {
             .chart-container {
-                height: 350px;
+                height: 400px;
             }
         }
         section {
-            padding-top: 4rem;
-            padding-bottom: 4rem;
+            padding-top: 6rem; /* Increased padding */
+            padding-bottom: 6rem; /* Increased padding */
         }
         header {
             height: 64px;
         }
-        .lang-option.active {
-            background-color: #eef2ff;
-            font-weight: 600;
-            color: #3b82f6;
+        .lang-btn {
+            background-color: transparent;
+            color: #4b5563;
+            transition: all 0.2s ease-in-out;
+        }
+        .lang-btn.active {
+            background-color: #3b82f6;
+            color: white;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
         }
     </style>
 </head>
@@ -90,157 +95,153 @@
                         <a class="nav-link px-3 py-2 text-sm font-medium" data-target="componentes" data-i18n-key="navComponents">Componentes</a>
                         <a class="nav-link px-3 py-2 text-sm font-medium" data-target="ecosistema" data-i18n-key="navEcosystem">Ecosistema</a>
                     </div>
-                    <div class="relative ml-4">
-                        <button class="lang-menu-button p-2 rounded-full text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m0 18a9 9 0 009-9m-9 9a9 9 0 00-9-9" />
-                            </svg>
-                        </button>
-                        <div class="lang-menu hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5 z-50">
-                            <a href="#" class="lang-option block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="es">Español</a>
-                            <a href="#" class="lang-option block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
-                        </div>
+                    <div id="language-selector" class="ml-4 flex items-center space-x-2 border border-gray-300 rounded-full p-1">
+                        <button class="lang-btn text-sm font-semibold px-3 py-1 rounded-full" data-lang="es">ES</button>
+                        <button class="lang-btn text-sm font-semibold px-3 py-1 rounded-full" data-lang="en">EN</button>
                     </div>
                 </div>
                  <div class="md:hidden flex items-center">
                     <select id="mobile-nav" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
                     </select>
-                    <div class="relative ml-2">
-                         <button class="lang-menu-button p-2 rounded-full text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m0 18a9 9 0 009-9m-9 9a9 9 0 00-9-9" />
-                            </svg>
-                        </button>
-                        <div class="lang-menu hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5 z-50">
-                            <a href="#" class="lang-option block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="es">Español</a>
-                            <a href="#" class="lang-option block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
-                        </div>
+                    <div id="mobile-language-selector" class="ml-2 flex items-center space-x-2 border border-gray-300 rounded-full p-1">
+                         <button class="lang-btn text-sm font-semibold px-3 py-1 rounded-full" data-lang="es">ES</button>
+                         <button class="lang-btn text-sm font-semibold px-3 py-1 rounded-full" data-lang="en">EN</button>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
 
-    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+    <main>
         
         <section id="vision-general" class="content-section">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" data-i18n-key="vgTitle">¿Qué es COBIT 2019?</h2>
-                <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600" data-i18n-key="vgSubtitle">COBIT es un marco de referencia para el gobierno y la gestión de la información y la tecnología (I&T) de una empresa, que ayuda a las organizaciones a crear valor óptimo a partir de sus activos tecnológicos.</p>
-                <p class="mt-4 max-w-3xl mx-auto text-gray-600" data-i18n-key="vgDescription">Actúa como un puente esencial, traduciendo las metas estratégicas del negocio en objetivos de TI específicos y medibles. Su enfoque en la "I&T empresarial" abarca toda la tecnología y el procesamiento de información que la empresa utiliza para lograr sus objetivos, asegurando que las decisiones tecnológicas se integren plenamente en el gobierno corporativo general.</p>
-            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-20">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" data-i18n-key="vgTitle">¿Qué es COBIT 2019?</h2>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600" data-i18n-key="vgSubtitle">COBIT es un marco de referencia para el gobierno y la gestión de la información y la tecnología (I&T) de una empresa, que ayuda a las organizaciones a crear valor óptimo a partir de sus activos tecnológicos.</p>
+                    <p class="mt-4 max-w-3xl mx-auto text-gray-600" data-i18n-key="vgDescription">Actúa como un puente esencial, traduciendo las metas estratégicas del negocio en objetivos de TI específicos y medibles. Su enfoque en la "I&T empresarial" abarca toda la tecnología y el procesamiento de información que la empresa utiliza para lograr sus objetivos, asegurando que las decisiones tecnológicas se integren plenamente en el gobierno corporativo general.</p>
+                </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <div class="text-blue-500 mb-4 text-4xl">💎</div>
-                    <h3 class="text-lg font-semibold mb-2" data-i18n-key="vgCard1Title">Creación de Valor</h3>
-                    <p class="text-gray-600" data-i18n-key="vgCard1Desc">Alinear los objetivos de TI con las metas del negocio para generar valor tangible para todas las partes interesadas.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-blue-500 mb-4 text-4xl">💎</div>
+                        <h3 class="text-lg font-semibold mb-2" data-i18n-key="vgCard1Title">Creación de Valor</h3>
+                        <p class="text-gray-600" data-i18n-key="vgCard1Desc">Alinear los objetivos de TI con las metas del negocio para generar valor tangible para todas las partes interesadas.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-blue-500 mb-4 text-4xl">🛡️</div>
+                        <h3 class="text-lg font-semibold mb-2" data-i18n-key="vgCard2Title">Optimización de Riesgos</h3>
+                        <p class="text-gray-600" data-i18n-key="vgCard2Desc">Identificar, evaluar y mitigar los riesgos relacionados con I&T dentro del apetito de riesgo de la empresa.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-blue-500 mb-4 text-4xl">⚙️</div>
+                        <h3 class="text-lg font-semibold mb-2" data-i18n-key="vgCard3Title">Optimización de Recursos</h3>
+                        <p class="text-gray-600" data-i18n-key="vgCard3Desc">Promover el uso eficiente y eficaz de todos los recursos de I&T, incluyendo personas, infraestructura y aplicaciones.</p>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <div class="text-blue-500 mb-4 text-4xl">🛡️</div>
-                    <h3 class="text-lg font-semibold mb-2" data-i18n-key="vgCard2Title">Optimización de Riesgos</h3>
-                    <p class="text-gray-600" data-i18n-key="vgCard2Desc">Identificar, evaluar y mitigar los riesgos relacionados con I&T dentro del apetito de riesgo de la empresa.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <div class="text-blue-500 mb-4 text-4xl">⚙️</div>
-                    <h3 class="text-lg font-semibold mb-2" data-i18n-key="vgCard3Title">Optimización de Recursos</h3>
-                    <p class="text-gray-600" data-i18n-key="vgCard3Desc">Promover el uso eficiente y eficaz de todos los recursos de I&T, incluyendo personas, infraestructura y aplicaciones.</p>
-                </div>
-            </div>
 
-            <div>
-                <h3 class="text-2xl font-bold text-center mb-8" data-i18n-key="vgTimelineTitle">Evolución Histórica de COBIT</h3>
-                <div class="relative">
-                    <div class="absolute left-1/2 w-0.5 h-full bg-gray-300 -translate-x-1/2"></div>
-                    <div id="timeline-container" class="space-y-12"></div>
+                <div>
+                    <h3 class="text-2xl font-bold text-center mb-12" data-i18n-key="vgTimelineTitle">Evolución Histórica de COBIT</h3>
+                    <div class="relative">
+                        <div class="absolute left-1/2 w-0.5 h-full bg-gray-300 -translate-x-1/2"></div>
+                        <div id="timeline-container" class="space-y-12"></div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="principios" class="content-section">
-             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" data-i18n-key="pTitle">Principios Fundamentales</h2>
-                <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600" data-i18n-key="pSubtitle">COBIT 2019 distingue entre los principios para un sistema de gobierno efectivo y los principios para el marco que lo construye.</p>
-            </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-xl font-semibold mb-4 text-center" data-i18n-key="pSystemTitle">Principios de un Sistema de Gobierno</h3>
-                    <div id="system-principles" class="space-y-4"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                 <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" data-i18n-key="pTitle">Principios Fundamentales</h2>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600" data-i18n-key="pSubtitle">COBIT 2019 distingue entre los principios para un sistema de gobierno efectivo y los principios para el marco que lo construye.</p>
                 </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-4 text-center" data-i18n-key="pFrameworkTitle">Principios de un Marco de Gobierno</h3>
-                    <div id="framework-principles" class="space-y-4"></div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-center" data-i18n-key="pSystemTitle">Principios de un Sistema de Gobierno</h3>
+                        <div id="system-principles" class="space-y-4"></div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-center" data-i18n-key="pFrameworkTitle">Principios de un Marco de Gobierno</h3>
+                        <div id="framework-principles" class="space-y-4"></div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="arquitectura" class="content-section">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" data-i18n-key="aTitle">Arquitectura y Dominios</h2>
-                <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600" data-i18n-key="aSubtitle">La arquitectura de COBIT se basa en la distinción crucial entre Gobierno y Gestión, organizando 40 objetivos en 5 dominios.</p>
-            </div>
-            
-            <div class="bg-white p-6 rounded-lg shadow-md mb-12">
-                <h3 class="text-xl font-semibold text-center mb-4" data-i18n-key="aGvMTitle">Gobierno vs. Gestión</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
-                    <div class="bg-blue-100 border border-blue-200 p-4 rounded-lg">
-                        <h4 class="font-bold text-blue-800" data-i18n-key="aGvMCard1Title">Gobierno (EDM)</h4>
-                        <p class="text-blue-700" data-i18n-key="aGvMCard1Desc">Responsabilidad del Consejo. Evalúa, Dirige y Monitorea (EDM) para asegurar que se cumplan las metas empresariales.</p>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" data-i18n-key="aTitle">Arquitectura y Dominios</h2>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600" data-i18n-key="aSubtitle">La arquitectura de COBIT se basa en la distinción crucial entre Gobierno y Gestión, organizando 40 objetivos en 5 dominios.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md mb-16">
+                    <h3 class="text-xl font-semibold text-center mb-4" data-i18n-key="aGvMTitle">Gobierno vs. Gestión</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
+                        <div class="bg-blue-100 border border-blue-200 p-4 rounded-lg">
+                            <h4 class="font-bold text-blue-800" data-i18n-key="aGvMCard1Title">Gobierno (EDM)</h4>
+                            <p class="text-blue-700" data-i18n-key="aGvMCard1Desc">Responsabilidad del Consejo. Evalúa, Dirige y Monitorea (EDM) para asegurar que se cumplan las metas empresariales.</p>
+                        </div>
+                        <div class="bg-green-100 border border-green-200 p-4 rounded-lg">
+                            <h4 class="font-bold text-green-800" data-i18n-key="aGvMCard2Title">Gestión (APO, BAI, DSS, MEA)</h4>
+                            <p class="text-green-700" data-i18n-key="aGvMCard2Desc">Responsabilidad de la Gerencia. Planifica, Construye, Ejecuta y Monitorea las actividades para alcanzar los objetivos.</p>
+                        </div>
                     </div>
-                    <div class="bg-green-100 border border-green-200 p-4 rounded-lg">
-                        <h4 class="font-bold text-green-800" data-i18n-key="aGvMCard2Title">Gestión (APO, BAI, DSS, MEA)</h4>
-                        <p class="text-green-700" data-i18n-key="aGvMCard2Desc">Responsabilidad de la Gerencia. Planifica, Construye, Ejecuta y Monitorea las actividades para alcanzar los objetivos.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md mb-16">
+                    <h3 class="text-xl font-semibold text-center mb-6" data-i18n-key="aCascadeTitle">La Cascada de Metas de COBIT</h3>
+                    <p class="text-center text-gray-600 mb-8" data-i18n-key="aCascadeDesc">Este concepto central ilustra cómo las necesidades de las partes interesadas se traducen en cascada en metas empresariales, metas de alineación y, finalmente, en objetivos específicos de gobierno y gestión. Esto asegura una alineación directa desde la estrategia hasta la operación.</p>
+                    <div class="space-y-4" id="cascade-container">
+                        <!-- Cascade items will be generated by JS -->
                     </div>
                 </div>
-            </div>
-            
-            <div class="bg-white p-8 rounded-lg shadow-md mb-12">
-                <h3 class="text-xl font-semibold text-center mb-6" data-i18n-key="aCascadeTitle">La Cascada de Metas de COBIT</h3>
-                <p class="text-center text-gray-600 mb-8" data-i18n-key="aCascadeDesc">Este concepto central ilustra cómo las necesidades de las partes interesadas se traducen en cascada en metas empresariales, metas de alineación y, finalmente, en objetivos específicos de gobierno y gestión. Esto asegura una alineación directa desde la estrategia hasta la operación.</p>
-                <div class="space-y-4" id="cascade-container">
-                    <!-- Cascade items will be generated by JS -->
-                </div>
-            </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center my-20">
-                <div class="text-center lg:text-left">
-                    <h3 class="text-xl font-semibold mb-4" data-i18n-key="aChartTitle">Distribución de Objetivos por Dominio</h3>
-                    <p class="text-gray-600" data-i18n-key="aChartDesc">COBIT 2019 organiza sus 40 objetivos en 5 dominios clave. El dominio de Gobierno (EDM) establece la dirección, mientras que los cuatro dominios de Gestión se encargan de la ejecución. Este gráfico muestra cuántos objetivos pertenecen a cada dominio, destacando las áreas con mayor enfoque.</p>
+                <div class="my-20">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <h3 class="text-2xl font-bold mb-4" data-i18n-key="aChartTitle">Distribución de Objetivos por Dominio</h3>
+                        <p class="text-gray-600" data-i18n-key="aChartDesc">COBIT 2019 organiza sus 40 objetivos en 5 dominios clave. El dominio de Gobierno (EDM) establece la dirección, mientras que los cuatro dominios de Gestión se encargan de la ejecución. Este gráfico muestra cuántos objetivos pertenecen a cada dominio, destacando las áreas con mayor enfoque.</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="domainsChart"></canvas>
+                    </div>
                 </div>
-                <div class="chart-container">
-                    <canvas id="domainsChart"></canvas>
-                </div>
-            </div>
 
-            <div>
-                <h3 class="text-2xl font-bold text-center mb-8" data-i18n-key="aExplorerTitle">Explorador de Objetivos</h3>
-                <div id="domain-tabs" class="flex flex-wrap justify-center gap-2 mb-8"></div>
-                <div id="objectives-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"></div>
+                <div>
+                    <h3 class="text-2xl font-bold text-center mb-8" data-i18n-key="aExplorerTitle">Explorador de Objetivos</h3>
+                    <div id="domain-tabs" class="flex flex-wrap justify-center gap-2 mb-8"></div>
+                    <div id="objectives-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"></div>
+                </div>
             </div>
         </section>
 
         <section id="componentes" class="content-section">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" data-i18n-key="cTitle">Siete Componentes del Sistema de Gobierno</h2>
-                <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600" data-i18n-key="cSubtitle">Un sistema de gobierno efectivo requiere un enfoque holístico que considere siete tipos de componentes interrelacionados.</p>
-                 <p class="mt-4 max-w-3xl mx-auto text-gray-600" data-i18n-key="cDescription">Estos componentes, antes conocidos como "habilitadores", son los factores que, individual y colectivamente, contribuyen al buen funcionamiento del sistema. Su interdependencia es clave: un proceso bien definido no funcionará sin personas con las habilidades adecuadas que operen dentro de una estructura organizativa clara y sigan políticas bien establecidas.</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="components-container">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" data-i18n-key="cTitle">Siete Componentes del Sistema de Gobierno</h2>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600" data-i18n-key="cSubtitle">Un sistema de gobierno efectivo requiere un enfoque holístico que considere siete tipos de componentes interrelacionados.</p>
+                     <p class="mt-4 max-w-3xl mx-auto text-gray-600" data-i18n-key="cDescription">Estos componentes, antes conocidos como "habilitadores", son los factores que, individual y colectivamente, contribuyen al buen funcionamiento del sistema. Su interdependencia es clave: un proceso bien definido no funcionará sin personas con las habilidades adecuadas que operen dentro de una estructura organizativa clara y sigan políticas bien establecidas.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="components-container">
+                </div>
             </div>
         </section>
 
         <section id="ecosistema" class="content-section">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" data-i18n-key="eTitle">COBIT en el Ecosistema de Estándares</h2>
-                <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600" data-i18n-key="eSubtitle">COBIT no reemplaza otros marcos, sino que actúa como un "marco paraguas" integrador que proporciona una estructura de gobierno general.</p>
-                <p class="mt-4 max-w-3xl mx-auto text-gray-600" data-i18n-key="eDescription">Su capacidad para actuar como una capa de orquestación es su mayor fortaleza estratégica. En lugar de competir, COBIT envuelve otros estándares especializados (como ITIL, ISO 27001, COSO) en un contexto de gobierno empresarial, asegurando que todas las iniciativas de mejores prácticas estén alineadas con la estrategia de negocio.</p>
-            </div>
-            <div class="flex flex-col lg:flex-row gap-8">
-                <div class="w-full lg:w-1/3">
-                    <div class="space-y-4" id="ecosystem-buttons"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" data-i18n-key="eTitle">COBIT en el Ecosistema de Estándares</h2>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600" data-i18n-key="eSubtitle">COBIT no reemplaza otros marcos, sino que actúa como un "marco paraguas" integrador que proporciona una estructura de gobierno general.</p>
+                    <p class="mt-4 max-w-3xl mx-auto text-gray-600" data-i18n-key="eDescription">Su capacidad para actuar como una capa de orquestación es su mayor fortaleza estratégica. En lugar de competir, COBIT envuelve otros estándares especializados (como ITIL, ISO 27001, COSO) en un contexto de gobierno empresarial, asegurando que todas las iniciativas de mejores prácticas estén alineadas con la estrategia de negocio.</p>
                 </div>
-                <div class="w-full lg:w-2/3 bg-white p-6 rounded-lg shadow-md">
-                    <div id="ecosystem-content"></div>
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <div class="w-full lg:w-1/3">
+                        <div class="space-y-4" id="ecosystem-buttons"></div>
+                    </div>
+                    <div class="w-full lg:w-2/3 bg-white p-6 rounded-lg shadow-md">
+                        <div id="ecosystem-content"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -337,7 +338,7 @@
                         { title: 'Proporcionar Valor a las Partes Interesadas', content: 'El propósito final de cualquier sistema de gobierno de I&T es la creación de valor para sus partes interesadas. Esto se logra equilibrando beneficios, riesgos y recursos.' },
                         { title: 'Enfoque Holístico', content: 'Requiere la interacción de múltiples componentes (procesos, estructuras, personas, etc.) que deben trabajar juntos de manera sistémica para que el gobierno sea efectivo.' },
                         { title: 'Sistema de Gobierno Dinámico', content: 'Debe ser capaz de adaptarse cuando cambian los factores de diseño, como la estrategia empresarial o nuevas tecnologías, asegurando su relevancia continua.' },
-                        { title: 'Separar el Gobierno de la Gestión', content: 'El gobierno (consejo) establece la dirección (Evaluar, Dirigir, Monitorear), mientras que la gestión (ejecutivos) planifica, construye, ejecuta y monitorea las actividades para alcanzar los objetivos.' },
+                        { title: 'Separar el Gobierno de la Gestión', content: 'El gobierno (consejo) establece la dirección (Evaluar, Dirige, Monitorear), mientras que la gestión (ejecutivos) planifica, construye, ejecuta y monitorea las actividades para alcanzar los objetivos.' },
                         { title: 'Adaptado a las Necesidades de la Empresa', content: 'Debe ser personalizado según el contexto, industria, perfil de riesgo y estrategia específicos de la empresa, utilizando los factores de diseño de COBIT.' },
                         { title: 'Sistema de Gobierno de Extremo a Extremo', content: 'Debe estar integrado en el gobierno corporativo general y cubrir a toda la empresa, no solo al departamento de TI, abarcando toda la I&T empresarial.' }
                     ],
@@ -410,149 +411,6 @@
                     { id: 'DSS', name: 'Deliver, Service and Support', color: '#f87171' },
                     { id: 'MEA', name: 'Monitor, Evaluate and Assess', color: '#c084fc' }
                 ]
-            },
-            en: {
-                pageTitle: "Interactive COBIT 2019 Explorer",
-                headerTitle: "COBIT 2019 Explorer",
-                navOverview: "Overview",
-                navPrinciples: "Principles",
-                navArchitecture: "Architecture & Domains",
-                navComponents: "Components",
-                navEcosystem: "Ecosystem",
-                vgTitle: "What is COBIT 2019?",
-                vgSubtitle: "COBIT is a framework for the governance and management of enterprise information and technology (I&T), aimed at the whole enterprise, that helps organizations create optimal value from their technological assets.",
-                vgDescription: "It acts as an essential bridge, translating strategic business goals into specific, measurable IT objectives. Its focus on \"enterprise I&T\" covers all technology and information processing the company uses to achieve its objectives, ensuring that technology decisions are fully integrated into overall corporate governance.",
-                vgCard1Title: "Value Creation",
-                vgCard1Desc: "Aligning IT objectives with business goals to generate tangible value for all stakeholders.",
-                vgCard2Title: "Risk Optimization",
-                vgCard2Desc: "Identifying, assessing, and mitigating I&T-related risks within the enterprise's risk appetite.",
-                vgCard3Title: "Resource Optimization",
-                vgCard3Desc: "Promoting the efficient and effective use of all I&T resources, including people, infrastructure, and applications.",
-                vgTimelineTitle: "Historical Evolution of COBIT",
-                pTitle: "Core Principles",
-                pSubtitle: "COBIT 2019 distinguishes between the principles for an effective governance system and the principles for the framework that builds it.",
-                pSystemTitle: "Governance System Principles",
-                pFrameworkTitle: "Governance Framework Principles",
-                aTitle: "Architecture and Domains",
-                aSubtitle: "COBIT's architecture is based on the crucial distinction between Governance and Management, organizing 40 objectives into 5 domains.",
-                aGvMTitle: "Governance vs. Management",
-                aGvMCard1Title: "Governance (EDM)",
-                aGvMCard1Desc: "The responsibility of the Board. It Evaluates, Directs, and Monitors (EDM) to ensure business goals are met.",
-                aGvMCard2Title: "Management (APO, BAI, DSS, MEA)",
-                aGvMCard2Desc: "The responsibility of Management. It Plans, Builds, Runs, and Monitors activities to achieve objectives.",
-                aCascadeTitle: "The COBIT Goals Cascade",
-                aCascadeDesc: "This core concept illustrates how stakeholder needs cascade down to enterprise goals, then to alignment goals, and finally to specific governance and management objectives. This ensures a direct alignment from strategy to operation.",
-                cascade: [
-                    { titleKey: "aCascade1", descKey: "aCascade1Desc" },
-                    { titleKey: "aCascade2", descKey: "aCascade2Desc" },
-                    { titleKey: "aCascade3", descKey: "aCascade3Desc" },
-                    { titleKey: "aCascade4", descKey: "aCascade4Desc" }
-                ],
-                aCascade1: "Stakeholder Needs:",
-                aCascade1Desc: "Drive value creation (e.g., benefits realization, risk management).",
-                aCascade2: "Enterprise Goals:",
-                aCascade2Desc: "Translate needs into generic corporate goals (e.g., revenue growth, cost optimization).",
-                aCascade3: "Alignment Goals:",
-                aCascade3Desc: "Link enterprise goals to specific I&T outcomes (e.g., I&T strategy alignment with business, I&T service delivery).",
-                aCascade4: "Governance & Management Objectives:",
-                aCascade4Desc: "Describe the processes and practices needed to achieve alignment goals (e.g., EDM02, APO02, BAI01).",
-                aChartTitle: "Distribution of Objectives per Domain",
-                aChartDesc: "COBIT 2019 organizes its 40 objectives into 5 key domains. The Governance domain (EDM) sets the direction, while the four Management domains handle execution. This chart shows how many objectives belong to each domain, highlighting the areas with the greatest focus.",
-                aExplorerTitle: "Objectives Explorer",
-                cTitle: "Seven Components of a Governance System",
-                cSubtitle: "An effective governance system requires a holistic approach that considers seven interrelated types of components.",
-                cDescription: "These components, formerly known as 'enablers,' are the factors that, individually and collectively, contribute to the proper functioning of the system. Their interdependence is key: a well-defined process will not work without skilled people operating within a clear organizational structure and following well-established policies.",
-                eTitle: "COBIT in the Ecosystem of Standards",
-                eSubtitle: "COBIT does not replace other frameworks but acts as an integrator 'umbrella framework' that provides an overall governance structure.",
-                eDescription: "Its ability to act as an orchestration layer is its greatest strategic strength. Rather than competing, COBIT wraps other specialized standards (like ITIL, ISO 27001, COSO) in a business governance context, ensuring all best practice initiatives are aligned with business strategy.",
-                footerText: "Interactive application based on the COBIT® 2019 framework from ISACA.",
-                modalPurposeTitle: "Objective Purpose",
-                chartLabel: "Number of Objectives",
-                timeline: [
-                    { year: 1996, title: 'COBIT 1', description: 'Released as a set of control objectives for financial auditors in IT environments.' },
-                    { year: 1998, title: 'COBIT 2', description: 'Expanded beyond auditing to include management guidelines.' },
-                    { year: 2005, title: 'COBIT 4', description: 'Introduced a stronger connection between business requirements and IT goals.' },
-                    { year: 2012, title: 'COBIT 5', description: 'Integrated Val IT and Risk IT, presenting a single governance and management framework with 5 key principles.' },
-                    { year: 2018, title: 'COBIT 2019', description: 'Evolved from COBIT 5 to address new trends (digital transformation, cybersecurity) and introduced design factors for greater flexibility.' }
-                ],
-                principles: {
-                    system: [
-                        { title: 'Provide Stakeholder Value', content: 'The ultimate purpose of any I&T governance system is to create value for its stakeholders. This is achieved by balancing benefits, risks, and resources.' },
-                        { title: 'Holistic Approach', content: 'It requires the interaction of multiple components (processes, structures, people, etc.) that must work together systemically for governance to be effective.' },
-                        { title: 'Dynamic Governance System', content: 'It must be able to adapt when design factors change, such as business strategy or new technologies, ensuring its continued relevance.' },
-                        { title: 'Governance Distinct From Management', content: 'Governance (the board) sets the direction (Evaluate, Direct, Monitor), while management (executives) plans, builds, runs, and monitors activities to achieve objectives.' },
-                        { title: 'Tailored to Enterprise Needs', content: 'It must be customized according to the enterprise\'s specific context, industry, risk profile, and strategy, using COBIT\'s design factors.' },
-                        { title: 'End-to-End Governance System', content: 'It must be integrated into overall corporate governance and cover the entire enterprise, not just the IT department, encompassing all enterprise I&T.' }
-                    ],
-                    framework: [
-                        { title: 'Based on a Conceptual Model', content: 'It must be based on a consistent and logical conceptual model, identifying key components and their relationships to maximize coherence and enable automation.' },
-                        { title: 'Open and Flexible', content: 'It must allow for the addition of new content and the ability to address new issues in an agile manner, without compromising its overall integrity and consistency.' },
-                        { title: 'Aligned to Major Standards', content: 'It should align with and be compatible with other relevant standards like ITIL, ISO/IEC 27001, etc., to facilitate integration and avoid duplication of effort.' }
-                    ]
-                },
-                components: [
-                    { icon: '🔄', title: 'Processes', description: 'A set of practices and activities to achieve objectives and produce outputs that support overall goals.' },
-                    { icon: '🏢', title: 'Organizational Structures', description: 'Key decision-making entities (committees, roles) with defined responsibilities and authority.' },
-                    { icon: '📜', title: 'Principles, Policies and Frameworks', description: 'Practical guidance that translates desired behavior into rules and guidelines for daily management.' },
-                    { icon: 'ℹ️', title: 'Information', description: 'Information required for the effective functioning of the governance system and informed decision-making.' },
-                    { icon: '🤝', title: 'Culture, Ethics and Behavior', description: 'The behavior of individuals and the enterprise as a whole, an often-underestimated success factor.' },
-                    { icon: '👥', title: 'People, Skills and Competencies', description: 'Capabilities needed for good decision-making, execution of actions, and successful completion of activities.' },
-                    { icon: '💻', title: 'Services, Infrastructure and Applications', description: 'Technological resources that the governance system must manage to provide I&T services to the enterprise.' }
-                ],
-                ecosystem: [
-                    { id: 'itil', title: 'COBIT + ITIL', content: '<h4>The Strategic "What" vs. the Operational "How"</h4><p>COBIT and ITIL are highly complementary. COBIT takes a "top-down" approach, defining <strong>what</strong> IT controls and processes are needed based on business objectives. ITIL takes a "bottom-up" approach, describing <strong>how</strong> to deliver and support those services efficiently. In practice, COBIT sets the objectives (the "what"), and ITIL provides the detailed processes to meet them (the "how").</p>' },
-                    { id: 'iso27001', title: 'COBIT + ISO/IEC 27001', content: '<h4>Overall Governance vs. Specific Security Management</h4><p>COBIT is a broad governance framework where security is a key component. ISO 27001 is a standard focused exclusively on information security management (ISMS). An organization can use COBIT to establish the governance framework and objectives for security (the "why"), and then use ISO 27001 as the detailed methodology to implement the required ISMS. COBIT ensures that security is aligned with the business.</p>' },
-                    { id: 'coso', title: 'COBIT + COSO', content: '<h4>IT Governance vs. Internal Control & Financial Risk</h4><p>COSO provides a framework for internal control and enterprise risk management, with a strong focus on financial reporting. COBIT focuses specifically on the governance of I&T. COBIT is the ideal framework for implementing the IT General Controls (ITGCs) that are necessary to meet COSO requirements. If COSO demands reliable financial reports, COBIT provides the guidance to ensure the IT systems generating them are controlled and reliable.</p>' }
-                ],
-                objectives: [
-                    { id: 'EDM01', domain: 'EDM', name: 'Ensured Governance Framework Setting and Maintenance', purpose: 'Analyze and articulate the requirements for the governance of enterprise I&T. Put in place and maintain the governance components with clear authority and responsibilities to achieve the enterprise’s mission, goals and objectives.' },
-                    { id: 'EDM02', domain: 'EDM', name: 'Ensured Benefits Delivery', purpose: 'Optimize business value from business processes, IT services and IT assets.' },
-                    { id: 'EDM03', domain: 'EDM', name: 'Ensured Risk Optimization', purpose: 'Ensure that the enterprise’s risk appetite and tolerance are understood, articulated and communicated, and that risk to enterprise value related to the use of I&T is identified and managed.' },
-                    { id: 'EDM04', domain: 'EDM', name: 'Ensured Resource Optimization', purpose: 'Ensure that adequate and sufficient I&T-related capabilities (people, processes and technology) are available to support enterprise objectives effectively at an optimal cost.' },
-                    { id: 'EDM05', domain: 'EDM', name: 'Ensured Stakeholder Transparency', purpose: 'Ensure that stakeholders are identified and engaged in the I&T governance system and that enterprise I&T performance and conformance measurement and reporting are transparent.' },
-                    { id: 'APO01', domain: 'APO', name: 'Managed I&T Management Framework', purpose: 'Design and implement the management system for enterprise I&T based on enterprise goals and other design factors.' },
-                    { id: 'APO02', domain: 'APO', name: 'Managed Strategy', purpose: 'Provide a holistic view of the current and future business and I&T environment, and the initiatives required to migrate to the desired future environment.' },
-                    { id: 'APO03', domain: 'APO', name: 'Managed Enterprise Architecture', purpose: 'Establish a common architecture (business processes, information, applications, technology) in line with business strategy.' },
-                    { id: 'APO04', domain: 'APO', name: 'Managed Innovation', purpose: 'Maintain an awareness of I&T trends, identify innovation opportunities and plan how to benefit from them.' },
-                    { id: 'APO05', domain: 'APO', name: 'Managed Portfolio', purpose: 'Execute the strategic direction for investments, evaluating, prioritizing and balancing programs and services.' },
-                    { id: 'APO06', domain: 'APO', name: 'Managed Budget and Costs', purpose: 'Manage I&T-related financial activities, including budgeting, costs, benefits and prioritization of spending.' },
-                    { id: 'APO07', domain: 'APO', name: 'Managed Human Resources', purpose: 'Ensure optimal recruitment, planning, evaluation and development of human resources.' },
-                    { id: 'APO08', domain: 'APO', name: 'Managed Relationships', purpose: 'Manage relationships with business stakeholders in a formalized and transparent way.' },
-                    { id: 'APO09', domain: 'APO', name: 'Managed Service Agreements', purpose: 'Align I&T products, services and service levels with enterprise needs and expectations.' },
-                    { id: 'APO10', domain: 'APO', name: 'Managed Vendors', purpose: 'Manage vendor products and services to meet enterprise requirements.' },
-                    { id: 'APO11', domain: 'APO', name: 'Managed Quality', purpose: 'Define, communicate and monitor quality requirements in all I&T-related processes and outcomes.' },
-                    { id: 'APO12', domain: 'APO', name: 'Managed Risk', purpose: 'Continuously identify, assess and reduce I&T-related risk within tolerance levels.' },
-                    { id: 'APO13', domain: 'APO', name: 'Managed Security', purpose: 'Define, operate and monitor an information security management system.' },
-                    { id: 'APO14', domain: 'APO', name: 'Managed Data', purpose: 'Achieve and maintain effective management of the enterprise’s data assets across their life cycle.' },
-                    { id: 'BAI01', domain: 'BAI', name: 'Managed Programs', purpose: 'Manage all programs in the investment portfolio in alignment with enterprise strategy.' },
-                    { id: 'BAI02', domain: 'BAI', name: 'Managed Requirements Definition', purpose: 'Identify solutions and analyze requirements to ensure they align with enterprise strategy.' },
-                    { id: 'BAI03', domain: 'BAI', name: 'Managed Solutions Identification and Build', purpose: 'Establish and maintain products and services in line with enterprise requirements.' },
-                    { id: 'BAI04', domain: 'BAI', name: 'Managed Availability and Capacity', purpose: 'Balance current and future needs for availability, performance and capacity with cost-effective service delivery.' },
-                    { id: 'BAI05', domain: 'BAI', name: 'Managed Organizational Change', purpose: 'Maximize the likelihood of successfully implementing sustainable organizational change across the enterprise.' },
-                    { id: 'BAI06', domain: 'BAI', name: 'Managed IT Changes', purpose: 'Manage all changes in a controlled manner, including standard changes and emergency maintenance.' },
-                    { id: 'BAI07', domain: 'BAI', name: 'Managed IT Change Acceptance and Transitioning', purpose: 'Formally accept and transition new solutions into operation.' },
-                    { id: 'BAI08', domain: 'BAI', name: 'Managed Knowledge', purpose: 'Maintain the availability of relevant, current, validated and reliable management information to support decision-making.' },
-                    { id: 'BAI09', domain: 'BAI', name: 'Managed Assets', purpose: 'Manage I&T assets throughout their life cycle to ensure their use delivers value at an optimal cost.' },
-                    { id: 'BAI10', domain: 'BAI', name: 'Managed Configuration', purpose: 'Define and maintain descriptions and relationships between key resources and capabilities.' },
-                    { id: 'BAI11', domain: 'BAI', name: 'Managed Projects', purpose: 'Manage all projects in alignment with enterprise strategy and in a coordinated manner.' },
-                    { id: 'DSS01', domain: 'DSS', name: 'Managed Operations', purpose: 'Coordinate and execute the operational activities and procedures required to deliver I&T services.' },
-                    { id: 'DSS02', domain: 'DSS', name: 'Managed Service Requests and Incidents', purpose: 'Provide timely and effective response to user requests and resolution of incidents.' },
-                    { id: 'DSS03', domain: 'DSS', name: 'Managed Problems', purpose: 'Identify, classify and resolve problems and their root causes to prevent recurrence of incidents.' },
-                    { id: 'DSS04', domain: 'DSS', name: 'Managed Continuity', purpose: 'Establish and maintain a plan to respond to incidents and enable the continuation of critical operations.' },
-                    { id: 'DSS05', domain: 'DSS', name: 'Managed Security Services', purpose: 'Protect enterprise information to maintain the risk of security at an acceptable level.' },
-                    { id: 'DSS06', domain: 'DSS', name: 'Managed Business Process Controls', purpose: 'Define and maintain business process controls to ensure that information satisfies control requirements.' },
-                    { id: 'MEA01', domain: 'MEA', name: 'Managed Performance and Conformance Monitoring', purpose: 'Collect, validate and evaluate goals and metrics, and monitor that processes perform as agreed.' },
-                    { id: 'MEA02', domain: 'MEA', name: 'Managed System of Internal Control', purpose: 'Continuously monitor and evaluate the control environment to identify deficiencies and initiate improvements.' },
-                    { id: 'MEA03', domain: 'MEA', name: 'Managed Compliance with External Requirements', purpose: 'Evaluate that I&T processes comply with laws, regulations and contractual requirements.' },
-                    { id: 'MEA04', domain: 'MEA', name: 'Managed Assurance', purpose: 'Plan, scope and execute assurance initiatives to meet requirements and strategic objectives.' }
-                ],
-                domains: [
-                    { id: 'EDM', name: 'Evaluate, Direct and Monitor', color: '#60a5fa' },
-                    { id: 'APO', name: 'Align, Plan and Organize', color: '#4ade80' },
-                    { id: 'BAI', name: 'Build, Acquire and Implement', color: '#facc15' },
-                    { id: 'DSS', name: 'Deliver, Service and Support', color: '#f87171' },
-                    { id: 'MEA', name: 'Monitor, Evaluate and Assess', color: '#c084fc' }
-                ]
             }
         };
 
@@ -569,8 +427,8 @@
                 }
             });
 
-            document.querySelectorAll('.lang-option').forEach(option => {
-                option.classList.toggle('active', option.dataset.lang === lang);
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
             });
 
             // Re-initialize components that depend on language
@@ -587,8 +445,7 @@
             const navLinks = document.querySelectorAll('.nav-link');
             const mobileNav = document.getElementById('mobile-nav');
             const sections = document.querySelectorAll('.content-section');
-            const langMenuButtons = document.querySelectorAll('.lang-menu-button');
-            const langMenus = document.querySelectorAll('.lang-menu');
+            const langSelectorContainers = [document.getElementById('language-selector'), document.getElementById('mobile-language-selector')];
             const header = document.querySelector('header');
 
             function smoothScrollTo(targetId) {
@@ -616,38 +473,15 @@
                 smoothScrollTo(e.target.value);
             });
 
-            langMenuButtons.forEach(button => {
-                button.addEventListener('click', e => {
-                    e.stopPropagation();
-                    const menu = button.nextElementSibling;
-                    langMenus.forEach(m => {
-                        if (m !== menu) m.classList.add('hidden');
-                    });
-                    menu.classList.toggle('hidden');
-                });
-            });
-
-            langMenus.forEach(menu => {
-                menu.addEventListener('click', e => {
-                    if (e.target.classList.contains('lang-option')) {
-                        e.preventDefault();
+            langSelectorContainers.forEach(container => {
+                container.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'BUTTON' && e.target.classList.contains('lang-btn')) {
                         const newLang = e.target.dataset.lang;
                         if (newLang !== currentLang) {
                             translatePage(newLang);
                         }
-                        langMenus.forEach(m => m.classList.add('hidden'));
                     }
                 });
-            });
-
-            window.addEventListener('click', e => {
-                let clickedInside = false;
-                langMenuButtons.forEach(b => { if (b.contains(e.target)) clickedInside = true; });
-                langMenus.forEach(m => { if (m.contains(e.target)) clickedInside = true; });
-
-                if (!clickedInside) {
-                    langMenus.forEach(m => m.classList.add('hidden'));
-                }
             });
 
             const observerOptions = {
@@ -856,7 +690,13 @@
                     maintainAspectRatio: false,
                     plugins: {
                         legend: {
-                            position: 'top',
+                            position: 'bottom',
+                            labels: {
+                                padding: 25,
+                                font: {
+                                    size: 14
+                                }
+                            }
                         },
                         tooltip: {
                             callbacks: {
