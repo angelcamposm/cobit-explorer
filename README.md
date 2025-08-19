@@ -15,14 +15,13 @@ Este proyecto es una Single Page Application (SPA) interactiva y responsive dise
 - **Visualización de datos**: Incluye un gráfico de anillo interactivo (creado con Chart.js) para mostrar la distribución de los 40 objetivos de COBIT en sus 5 dominios.
 - **Diseño responsive**: La interfaz se adapta perfectamente a cualquier tamaño de pantalla, desde ordenadores de escritorio hasta dispositivos móviles.
 - **Auto-contenido**: Toda la aplicación está contenida en un único archivo HTML, lo que la hace extremadamente portátil y fácil de ejecutar.
-- **Sin dependencias externas (excepto CDNs)**: No requiere instalación ni compilación.
 
 Contenido Interactivo:
 
-- Línea de Tiempo Evolutiva: Muestra la historia de COBIT de forma visual.
-- Explorador de Objetivos: Permite filtrar los 40 objetivos por dominio y ver el propósito de cada uno en una ventana modal.
-- Secciones Desplegables: Los principios y la cascada de metas se presentan en acordeones para una lectura más limpia.
-- Cero Dependencias Externas: Funciona directamente en el navegador sin necesidad de instalación, build steps o un servidor web.
+- **Línea de Tiempo Evolutiva**: Muestra la historia de COBIT de forma visual.
+- **Explorador de Objetivos**: Permite filtrar los 40 objetivos por dominio y ver el propósito de cada uno en una ventana modal.
+- **Secciones Desplegables**: Los principios y la cascada de metas se presentan en acordeones para una lectura más limpia.
+- **Cero Dependencias Externas**: Funciona directamente en el navegador sin necesidad de instalación, build steps o un servidor web.
 
 ---
 
@@ -51,21 +50,6 @@ git clone https://github.com/angelcamposm/cobit-explorer.git
 Navega hasta el directorio del proyecto y abre el archivo `index.html` (o el nombre que le hayas dado) directamente en tu navegador web preferido (Google Chrome, Firefox, etc.).
 
 ¡Y eso es todo! La aplicación se ejecutará localmente en tu navegador.
-
----
-
-💻 Cómo Utilizarlo
-Simplemente descarga el archivo index.html y ábrelo en tu navegador web preferido.
-
-# Clona el repositorio (opcional)
-git clone https://github.com/tu-usuario/cobit-explorer.git
-
-# Navega al directorio
-cd cobit-explorer
-
-# Abre el archivo index.html en tu navegador
-
-¡Y eso es todo! No se requiere ninguna instalación ni configuración adicional.
 
 ---
 
